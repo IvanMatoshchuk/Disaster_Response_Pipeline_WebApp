@@ -36,7 +36,7 @@ http://WORKSPACESPACEID-3001.WORKSPACEDOMAIN replacing WORKSPACEID and WORKSPACE
 
 ```process_data.py``` is used as the pipeline for processing the data and preparing in for the further usage. 
 ```train_classifier.py``` is used to create a model needed for the given classification problem.
-`run.py`, `go.html`, `master.html` are used to run the Web App.
+```run.py```, ```go.html```, `master.html` are used to run the Web App.
 Markdown cells were used to assist in walking through the thought process for individual steps.  
 
 
