@@ -8,12 +8,12 @@ Udacity Data Science Nanodegree Term 2
 4. [Results](#results)
 5. [Licensing, Authors, and Acknowledgements](#licensing)
 
-### Description <a name="Instructions"></a>
+## Description <a name="Instructions"></a>
 
 This projects consists of the model that classifies disaster messages and a Wep App.
 Web App includes 3 Graphs of the data analysis and a text classifier.
 
-## Instructions: <a name="Instructions"></a>
+### Instructions: <a name="Instructions"></a>
 1. Run the following commands in the project's root directory to set up your database and model.
 
     - To run ETL pipeline that cleans data and stores in database
@@ -32,7 +32,7 @@ http://WORKSPACESPACEID-3001.WORKSPACEDOMAIN replacing WORKSPACEID and WORKSPACE
 
 
 
-## File Descriptions <a name="files"></a>
+### File Descriptions <a name="files"></a>
 
 ```process_data.py``` is used as the pipeline for processing the data and preparing in for the further usage. 
 ```train_classifier.py``` is used to create a model needed for the given classification problem.
@@ -41,14 +41,16 @@ Markdown cells were used to assist in walking through the thought process for in
 
 
 
-## Results<a name="results"></a>
+### Results<a name="results"></a>
 
 3 Graphs and a text classifier can be observed in the constructed Web App.
 Example:
+
+
 ![alt text](https://raw.githubusercontent.com/IvanMatoshchuk/Disaster_Response_Pipeline_WebApp/master/WebApp.PNG)
 
 
-## Licensing, Authors, Acknowledgements<a name="licensing"></a>
+### Licensing, Authors, Acknowledgements<a name="licensing"></a>
 
 Must give credit to Udacity for the data. Feel free to use the code here as you would like! 
 
