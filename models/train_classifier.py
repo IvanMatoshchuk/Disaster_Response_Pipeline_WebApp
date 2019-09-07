@@ -21,6 +21,11 @@ from sklearn.multioutput import MultiOutputClassifier
 
 
 def load_data(database_filepath):
+    '''
+        function that loads data
+        input: path to the database
+    '''
+    
     engine = create_engine('sqlite:///' + database_filepath)
     df = pd.read_sql("SELECT * FROM orginized_data", engine)
     X = df['message']
@@ -30,6 +35,11 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+    
+     '''
+        function that tokenizes the provided text
+        input: text
+    '''
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
     
@@ -42,8 +52,10 @@ def tokenize(text):
 
 
 def build_model():
-    "RandomFOrest and AdaBoost classifiers were compared on the local machine, Adaboost provides better results"
-   
+    ''' 
+       function for constructing the model
+       RandomFOrest and AdaBoost classifiers were compared on the local machine, Adaboost provides better results"
+   '''
     pipeline = Pipeline([
         ('features', FeatureUnion([
 
@@ -57,9 +69,27 @@ def build_model():
         ('clf', MultiOutputClassifier(AdaBoostClassifier()))
     ])
     
-    return pipeline
+    
+    parameters = {
+        'features__text_pipeline__vect__ngram_range': ((1, 1), (1, 2)),
+        'features__text_pipeline__vect__max_features': (None, 5000),
+        'clf__estimator__n_estimators': [50, 100],
+        'clf__estimator__learning_rate': [0.5, 0.75, 1],
+    }
+    cv = GridSearchCV(pipeline, param_grid = parameters, n_jobs=-1)
+    
+    
+    
+    
+    return cv
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    '''
+    function for model evaluation
+    
+    Input:  constructed model, testing data and its categories, names of the categories
+    '''
+
     Y_pred = model.predict(X_test)
     for i in range(0,Y_test.shape[1]):
         print("....................................................")
@@ -70,6 +100,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
 
 
 def save_model(model, model_filepath):
+   
     pickle.dump(model, open(model_filepath, 'wb'))
 
 
