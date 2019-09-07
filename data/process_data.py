@@ -5,6 +5,11 @@ from sqlalchemy import create_engine
 
 
 def load_data(messages_filepath, categories_filepath):
+    '''
+    function for data loading
+    
+    input: filepaths for "messages" and "categories" datasets
+    '''
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
     df = messages.merge(categories, on = "id")
@@ -13,6 +18,11 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
+    '''
+    function for data cleaning
+    input: constructed dataframe
+'''    
+    
     # loading data
     
     categories_sep = pd.Series(df["categories"]).str.split(pat=";", n=0, expand=True)
