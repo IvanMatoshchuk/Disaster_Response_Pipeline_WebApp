@@ -1,5 +1,7 @@
 # Disaster Response Pipeline Project
 
+Udacity Data Science Nanodegree Term 2
+
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
@@ -8,7 +10,11 @@
     - To run ML pipeline that trains classifier and saves
         `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
 
-2. Run the following command in the app's directory to run your web app.
-    `python run.py`
+2. In the terminal, use this command to get the link for vieweing the app:
+env | grep WORK
 
-3. Go to http://0.0.0.0:3001/
+The link wil be:
+http://WORKSPACESPACEID-3001.WORKSPACEDOMAIN replacing WORKSPACEID and WORKSPACEDOMAIN with your values.
+
+3. Run the following command in the app's directory to run your web app.
+    `python run.py`
